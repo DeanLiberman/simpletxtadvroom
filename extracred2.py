@@ -1,26 +1,83 @@
-print "Is the real reason behind the banning of the kinder surprise egg something to do with Germans?"
-print "Or is the real reason behind the banning of Kinder Surprise a surprise, HENCE THE SURPRISE?!"
+##Simple skeleton code to simulate moving between "rooms" freely.
+## It seems I can "move" between rooms/functions easily enough, but getting something to come from each
+## room seems tricky.
+
+## In other words, say I want a secret room to appear after pressing five buttons, one in each room
+## At the moment I am having difficulty doing/understanding that
 
 
-def kinderroom():
-            print "Determined to figure out the mystery of the kinder surprise egg"
-            print "you enter into an egg shaped room called the kinderroom."
-            print "You don't see any macoroni art, so you're pretty sure you're not"
-            print "back in Kindergarten. Suddenly, a golden Swatiska(if you're a Nazi)"
-            print "or a golden Buddhist Swatiska flashes before your eyes(if not a Nazi)"
-            print "A loud disembodied voice that is either the Buddha"
-            print "or Adolf Hitler respectfully says 'choose and eat your egg.'"
-            print "You see an egg on the left and an egg on the right. You decide to eat the egg on the..."
-            
-            choice = raw_input("> ")
-            
-            if choice == "left":
-                print "You choke on the plastic toy inside and die."
-                exit(1)
-            if choice == "right":
-                print "You discover the mystery of the egg and win!"
-                exit(1)
-kinderroom()
+
+
+
+def centerroom():
+    print "You are in the center room. You can go up to the upper room."
+    print "Down to the lower room."
+    print "Left to the left room."
+    print "Or right to the right room."
+    
+    choice = raw_input(">_")
+    
+    if choice == "left" or "LEFT" or "Left":
+        leftroom()
+    if choice == "right" or "RIGHT" or "Right":
+        rightroom()
+    if choice == "up" or "UP" or "Up":
+        upperroom()
+    if choice == "down" or "DOWN" or "Down":
+        lowerroom()
+    
+        
+    else:
+        centerroom()
+    
+def lowerroom():
+    print "You are in the lower room."
+    print "There seems to be nothing of note here."
+    print "You can go back up to the center room."
+    
+    choice = raw_input(">_")
+    
+    if choice == "up" or "UP" or "Up":
+        centerroom()
+    else:
+        lowerroom()
+        
+        
+def upperroom():
+    print "You are in the upper room."
+    print "You can go back down to the center room."
+    
+    choice = raw_input(">_>")
+    
+    if choice == "down" or "DOWN" or "Down":
+        centerroom()
+    else:
+        upperroom()
+        
+def rightroom():
+    print "You are in the right room."
+    print "You can go back left to the center room."
+    
+    choice = raw_input(">_>")
+    
+    if choice == "left" or "Left" or "LEFT":
+        counter+1
+        centerroom()
+    else:
+        rightroom()
+        
+def leftroom():
+    print "You are in the left room."
+    print "You can go back right to the center room."
+    
+    choice = raw_input(">_<")
+    
+    if choice == "right" or "Right" or "RIGHT":
+        centerroom()
+    else:
+        leftroom()
+    
+centerroom()
+
     
     
-
